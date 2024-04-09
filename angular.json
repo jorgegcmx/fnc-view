@@ -27,7 +27,16 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/vendor/jquery/jquery.min.js",
+              "src/vendor/bootstrap/js/bootstrap.bundle.min.js",
+              "src/vendor/jquery-easing/jquery.easing.min.js",
+              "src/js/sb-admin-2.min.js",
+              "src/vendor/datatables/jquery.dataTables.min.js",
+              "src/vendor/datatables/dataTables.bootstrap4.min.js",
+              "src/js/demo/datatables-demo.js"
+             
+            ],            
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
