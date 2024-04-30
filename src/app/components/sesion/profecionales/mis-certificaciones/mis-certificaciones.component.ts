@@ -12,6 +12,7 @@ import { InfoProfecional } from '../../../../interfaces/info-profecional';
 })
 export class MisCertificacionesComponent implements OnInit {
 
+  
   public DataHistorial$!: Observable<InfoProfecional>;
   constructor(private service: ServiceService) { }
 
