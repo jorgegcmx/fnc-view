@@ -15,4 +15,9 @@ export class ServiceService {
        return this.http.get<any>(url);
    }
 
+   getDataById(): Observable<any> {
+    const url ='http://localhost:8080/historico/historico_profecional/349'
+       return this.http.get<any>(url);
+   }
+
 }
