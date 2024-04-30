@@ -14,20 +14,22 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   loginObj: Login;
   isLogged: boolean;
+  msg: boolean;
 
   constructor(private service: LoginService, private router: Router) {
     this.loginObj = new Login();
     this.isLogged = false;
+    this.msg = true;
   }
 
   SingIn() {
-    console.log(this.loginObj);
     this.service.LoginService(this.loginObj).subscribe((res) => {
       console.log(res);
-
       if (res.isLogged) {
         this.service.setToken(res.user, res.userId);
         this.router.navigateByUrl('/dashboard');
+      } else {
+        this.msg = false;
       }
     });
   }

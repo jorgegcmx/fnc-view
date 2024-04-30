@@ -15,6 +15,11 @@ export class LoginService {
     return this.http.post<any>(url, req);
   }
 
+  ResendPassword(req: any): Observable<any> {
+    const url = 'http://localhost:8080/email/resend/'+req+''
+    return this.http.get<any>(url);
+  }
+
   setToken(userEmail: any, userID: any) {
     this.cookies.set("userEmail", userEmail);
     this.cookies.set("userID", userID);
