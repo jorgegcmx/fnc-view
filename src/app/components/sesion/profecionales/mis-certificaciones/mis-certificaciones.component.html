@@ -5,29 +5,63 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Información General</h1>
     </div>
-
-
-
     <div class="row">
 
-        <div class="col-lg-6">
-
-            <!-- Default Card Example -->
-            <div class="card mb-4">
+        <div class="col-lg-8">
+            @if (DataHistorial$ | async; as resultObject) {
+            <div class="card shadow mb-6">
                 <div class="card-header">
-                    Default Card Example
+                    <h3>Bienveniedo: {{resultObject.nombrecliente}}</h3>
+                </div>
+                <div class="card-header">
+                    <h6><b>Agencia:</b> {{resultObject.agencia.razon_social}}</h6>
+                    <b>Dirección:</b> {{resultObject.agencia.direccion}}<br>
+                    <b>Telefono:</b> {{resultObject.agencia.telefono}}<br>
+                    <b>Pais:</b> {{resultObject.agencia.pais}}<br>
                 </div>
                 <div class="card-body">
-                    This card uses Bootstrap's default styling with no utility classes added. Global
-                    styles are the only things modifying the look and feel of this default card example.
+                    <div class="table-responsive">
+                        <table class="table" width="100%" >
+                            <thead>
+                                <tr>
+                                    <th>Tus Cursos</th>
+                                    <th>No Certificado</th>
+                                    <th>Fecha</th>
+                                    <th>Estatus</th>
+                                    <th>Código</th>
+                                    <th>Descripción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (item of resultObject.cursos; track item.nocertificado) {
+                                <tr>
+                                    <td>{{item.curso}}</td>
+                                    <td>{{item.nocertificado}}</td>
+                                    <td>{{item.fecha}}</td>
+                                    <td>{{item.estatus}}</td>
+                                    <td>{{item.codigo}}</td>
+                                    <td>{{item.descripcion}}</td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
+
+            }@else {
+
+            <div class="position-absolute top-50 start-50">
+                Cargando...
+            </div>
+
+            }
         </div>
 
-        <div class="col-lg-6">
+        <div class="col-lg-4">
 
             <!-- Dropdown Card Example -->
-            <div class="card shadow mb-4">
+            <div class="card shadow mb-2">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">Dropdown Card Example</h6>

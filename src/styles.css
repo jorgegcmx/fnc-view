@@ -11,9 +11,9 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
  :root {
-    --blue: #4e73df;
-    --indigo: #6610f2;
-    --purple: #6f42c1;
+    --blue: #0b2f9c;
+    --indigo: #0b2f9c;
+    --purple: #4e73df;
     --pink: #e83e8c;
     --red: #e74a3b;
     --orange: #fd7e14;
@@ -70,7 +70,7 @@
   body {
     margin: 0;
     font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 400;
     line-height: 1.5;
     color: #858796;
@@ -1782,7 +1782,8 @@
   
   .table th,
   .table td {
-    padding: 0.75rem;
+    padding: 0.1rem;
+    font-size: small;
     vertical-align: top;
     border-top: 1px solid #e3e6f0;
   }
@@ -2694,8 +2695,8 @@
   
   .btn-primary {
     color: #fff;
-    background-color: #4e73df;
-    border-color: #4e73df;
+    background-color: #061c5c;
+    border-color: #061c5c;
   }
   
   .btn-primary:hover {
@@ -11101,7 +11102,7 @@
   
   .bg-gradient-primary {
     background-color: #4e73df;
-    background-image: linear-gradient(180deg, #4e73df 10%, #224abe 100%);
+    background-image: linear-gradient(180deg, #061c5c 10%, #061c5c 100%);
     background-size: cover;
   }
   
@@ -12103,19 +12104,19 @@
   }
   
   .bg-login-image {
-    background: url("https://source.unsplash.com/K4mSJ7kc0As/600x800");
+    background: url("https://scontent-iad3-2.cdninstagram.com/v/t51.29350-15/429775740_749417820229719_8314629270736459992_n.webp?stp=dst-jpg&_nc_cat=111&ccb=1-7&_nc_sid=18de74&_nc_ohc=AwRmE5TYlzgQ7kNvgGxm63-&_nc_oc=AdivIjmXAmqvGMOdRuf2JO_n71R0ENkCwmvmVMO3LhkzC4UmMs-bDnrOuPoatcGPsIM&_nc_ht=scontent-iad3-2.cdninstagram.com&edm=AEQ6tj4EAAAA&oh=00_AfDOnbJJrxlmf05lRTl4yZw5p-wRthGI48H0Z9JaqFQhrw&oe=66370B93");
     background-position: center;
     background-size: cover;
   }
   
   .bg-register-image {
-    background: url("https://source.unsplash.com/Mv9hjnEUHR4/600x800");
+    background: url("https://static.wixstatic.com/media/f5b804_e1a0f488989d44e582265d0554fe1538~mv2.jpg/v1/fill/w_293,h_425,al_c,q_80,usm_2.00_1.00_0.00,enc_auto/mapa%20de%20america%20del%20sur.jpg");
     background-position: center;
     background-size: cover;
   }
   
   .bg-password-image {
-    background: url("https://source.unsplash.com/oWTW-jNGl9I/600x800");
+    background: url("https://static.wixstatic.com/media/f5b804_6a741d9b769144cd91ceef521ac44157~mv2.png/v1/crop/x_0,y_0,w_400,h_500,q_85,usm_2.00_1.00_0.00,enc_auto/f5b804_6a741d9b769144cd91ceef521ac44157~mv2.png");
     background-position: center;
     background-size: cover;
   }

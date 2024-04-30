@@ -8,16 +8,16 @@ import { Url } from 'url';
 export class ServiceService {
 
 
-  constructor(private http: HttpClient) { }  
+  constructor(private http: HttpClient) { }
 
   getData(): Observable<any> {
-    const url ='http://localhost:8080/historico/historico'
-       return this.http.get<any>(url);
-   }
+    const url = 'http://localhost:8080/historico/historico'
+    return this.http.get<any>(url);
+  }
 
-   getDataById(): Observable<any> {
-    const url ='http://localhost:8080/historico/historico_profecional/349'
-       return this.http.get<any>(url);
-   }
+  getDataById(Id: any): Observable<any> {
+    const url = 'http://localhost:8080/historico/historico_profecional/' + Id + '';
+    return this.http.get<any>(url);
+  }
 
 }
