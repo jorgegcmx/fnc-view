@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './registro.component.css'
 })
 export class RegistroComponent implements OnInit {
+  disabled!:boolean
   smg!: Boolean
   text!: string
   password!: string
@@ -22,6 +23,7 @@ export class RegistroComponent implements OnInit {
     this.ProfacionalObj = new Profesional();
     this.password = '';
     this.smg = false;
+    this.disabled=false;
   }
 
   ngOnInit(): void {
@@ -36,6 +38,7 @@ export class RegistroComponent implements OnInit {
   }
 
   save() {
+    this.disabled=true;
     if (this.ProfacionalObj.password.length > 0) {
       if (this.ProfacionalObj.password.trim() == this.password.trim()) {
         if (this.ProfacionalObj.nombrecliente.trim() != '' && this.ProfacionalObj.emailcliente.trim() != '') {
@@ -43,6 +46,10 @@ export class RegistroComponent implements OnInit {
             if (res.smg == '¡Se registro de forma correcta!') {
               this.text = res.smg;
               this.smg = true;
+              this.disabled=false;
+            }else{
+              alert(res.smg);
+              this.disabled=false;
             }
           });
         } else {

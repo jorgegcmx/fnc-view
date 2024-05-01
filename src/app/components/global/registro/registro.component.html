@@ -1,5 +1,4 @@
 <div class="container">
-
     <div class="card o-hidden border-0 shadow-lg my-5">
         <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
@@ -8,7 +7,7 @@
                 <div class="col-lg-7">
                     <div class="p-5">
                         <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">Crear tu cuenta!</h1>
+                            <h1 class="h4 text-gray-900 mb-4">¡Crea tu cuenta!</h1>
                         </div>
                         <form class="user">
                             <div class="form-group row">
@@ -59,9 +58,9 @@
                                 {{text}}, recibiras un email para activar tu cuenta, ve a tu correo!
                             </div>
                             }
-                            <a (click)="save()" class="btn btn-primary btn-user btn-block">
+                            <button (click)="save()" class="btn btn-primary btn-user btn-block" [disabled]="disabled" >
                                 Crear!
-                            </a>
+                            </button>
                         </form>
                         <!--pre>Form value: {{ ProfacionalObj | json }}</pre-->
                         <hr>
@@ -76,5 +75,4 @@
             </div>
         </div>
     </div>
-
 </div>
