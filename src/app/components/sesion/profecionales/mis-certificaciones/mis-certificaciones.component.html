@@ -20,7 +20,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table" width="100%" >
+                        <table class="table" width="100%">
                             <thead>
                                 <tr>
                                     <th>Tus Cursos</th>
@@ -36,8 +36,8 @@
                                 @for (item of resultObject.cursos; track item.nocertificado) {
                                 <tr>
                                     <td>{{item.curso}}</td>
-                                    <td>{{item.nocertificado}}</td>
-                                    <td>{{item.fecha}}</td>
+                                    <td>{{item.nocertificado == null?'pendiente': item.nocertificado}}</td>
+                                    <td>{{item.fecha == null?'pendiente': item.fecha}}</td>
                                     <td>{{item.estatus}}</td>
                                     <td>{{item.codigo}}</td>
                                     <td>{{item.descripcion}}</td>
@@ -55,7 +55,7 @@
                 Cargando...
             </div>
             }
-        </div>     
+        </div>
     </div>
 </div>
 <!-- /.container-fluid -->

@@ -51,8 +51,7 @@ export class ListaCursosComponent implements OnInit {
     this.requestDetalle.costo = cursos.precio_mayoreo;
     this.requestDetalle.idprofecional = Number(this.loginservice.getID().toString());
     this.service.saveDetalleCursosProfesionales(this.requestDetalle).subscribe((res) => {
-      console.log(res);
-
+      alert(res.smg);
     });
   }
 
