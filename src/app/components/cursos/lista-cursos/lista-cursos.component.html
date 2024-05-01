@@ -5,54 +5,58 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Cursos</h1>
         <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-        <div class="input-group">
-            <input type="text" class="form-control bg-light border-2 small" placeholder="Buscar"
-                aria-label="Search" aria-describedby="basic-addon2" [(ngModel)]="buscar" name="buscar">
-            <div class="input-group-append">
-                <button class="btn btn-primary" type="button" (click)="buscarLista()">
-                    <i class="fas fa-search fa-sm"></i>
-                </button>
-                <button class="btn btn-info" type="button" (click)="buscarTodos()">
-                    Todos
-                </button>
-            </div>
-        </div>
-    </form>
-    </div>
-    <div class="row anyClass">
-        
-            @if (DataCursos$ | async; as resultObject) {
-            @for (item of resultObject; track item.id) {
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-primary shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    {{item.nombre}}
-                                </div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                            </div>
-                            <div class=" d-flex justify-content-between align-items-center">
-                                <div class="h5 mb-0 font-weight-bold text-gray-800 " style="padding: 15px;">
-                                    ${{item.precio_mayoreo}}</div>
-                                <a (click)="registro(item)" class="btn btn-primary btn-icon-split btn-sm">
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-arrow-right"></i>
-                                    </span>
-                                    <span class="text">Registrar</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+            <div class="input-group">
+                <input type="text" class="form-control bg-light border-2 small" placeholder="Buscar" aria-label="Search"
+                    aria-describedby="basic-addon2" [(ngModel)]="buscar" name="buscar">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" (click)="buscarLista()">
+                        <i class="fas fa-search fa-sm"></i>
+                    </button>
+                    <button class="btn btn-info" type="button" (click)="buscarTodos()">
+                        Todos
+                    </button>
                 </div>
             </div>
-            }
-            }
-        
+        </form>
+    </div>
+    <div class="row anyClass">
+        @if (DataCursos$ | async; as resultObject) {
+        @for (item of resultObject; track item.id) {
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                {{item.nombre}}
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                        <div class=" d-flex justify-content-between align-items-center">
+                            <div class="h5 mb-0 font-weight-bold text-gray-800 " style="padding: 15px;">
+                                ${{item.precio_mayoreo}}</div>
+                            <!--a (click)="registro(item)" class="btn btn-primary btn-icon-split btn-sm">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-arrow-right"></i>
+                                </span>
+                                <span class="text">Registrar</span>
+                            </a-->
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-footer text-muted">
+                    <app-pagos-pay></app-pagos-pay>
+                </div>
+            </div>
+        </div>
+        }
+        }
+
     </div>
 </div>
 <!-- /.container-fluid -->

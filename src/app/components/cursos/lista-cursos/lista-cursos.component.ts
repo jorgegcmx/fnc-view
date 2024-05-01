@@ -5,11 +5,13 @@ import { CommonModule, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Curso } from '../../../interfaces/curso';
 import { LoginService } from '../../../services/login/login.service';
+import { PagosPayComponent } from '../../global/pagos-pay/pagos-pay.component';
+
 
 @Component({
   selector: 'app-lista-cursos',
   standalone: true,
-  imports: [CommonModule, NgFor, FormsModule],
+  imports: [CommonModule, NgFor, FormsModule, PagosPayComponent],
   templateUrl: './lista-cursos.component.html',
   styleUrl: './lista-cursos.component.css'
 })
@@ -54,7 +56,6 @@ export class ListaCursosComponent implements OnInit {
       alert(res.smg);
     });
   }
-
 }
 
 export class DetalleCursosProfecionales {
