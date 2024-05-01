@@ -3,6 +3,8 @@ import { ServiceService } from '../../../services/profesionales/service.service'
 import { EMPTY, Observable, catchError } from 'rxjs';
 import { CommonModule, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Curso } from '../../../interfaces/curso';
+import { LoginService } from '../../../services/login/login.service';
 
 @Component({
   selector: 'app-lista-cursos',
@@ -16,10 +18,12 @@ export class ListaCursosComponent implements OnInit {
   public DataCursos$!: Observable<any[]>;
   nombre!: string;
   buscar!: string;
+  requestDetalle!: DetalleCursosProfecionales;
 
-  constructor(private service: ServiceService) {
+  constructor(private service: ServiceService, private loginservice: LoginService) {
     this.nombre = '1';
     this.buscar = '';
+    this.requestDetalle = new DetalleCursosProfecionales();
   }
 
   ngOnInit() {
@@ -42,4 +46,33 @@ export class ListaCursosComponent implements OnInit {
     }));
   }
 
+  registro(cursos: Curso) {
+    this.requestDetalle.idarticulo = cursos.idarticulos;
+    this.requestDetalle.costo = cursos.precio_mayoreo;
+    this.requestDetalle.idprofecional = Number(this.loginservice.getID().toString());
+    this.service.saveDetalleCursosProfesionales(this.requestDetalle).subscribe((res) => {
+      console.log(res);
+
+    });
+  }
+
+}
+
+export class DetalleCursosProfecionales {
+  id: any
+  idarticulo: number
+  nocertificado: any
+  fecha: any
+  costo: number
+  idprofecional: number
+  estatus: string
+  constructor() {
+    this.id = null;
+    this.idarticulo = 0;
+    this.nocertificado = null;
+    this.fecha = null;
+    this.costo = 0;
+    this.idprofecional = 0;
+    this.estatus = 'R';
+  }
 }

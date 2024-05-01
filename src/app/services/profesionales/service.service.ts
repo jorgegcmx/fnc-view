@@ -25,14 +25,19 @@ export class ServiceService {
     return this.http.get<any>(url);
   }
 
-  getSaveProfecional(profesional:any): Observable<any> {
+  getSaveProfecional(profesional: any): Observable<any> {
     const url = 'http://localhost:8080/profesionales/registro';
-    return this.http.post<any>(url,profesional);
+    return this.http.post<any>(url, profesional);
   }
 
-  getCursos(nombre:any): Observable<any> {
-    const url = 'http://localhost:8080/cursos/lista/'+nombre+'';
+  getCursos(nombre: any): Observable<any> {
+    const url = 'http://localhost:8080/cursos/lista/' + nombre + '';
     return this.http.get<any>(url);
+  }
+
+  saveDetalleCursosProfesionales(req: any): Observable<any> {
+    const url = 'http://localhost:8080/detalle/guarda';
+    return this.http.post<any>(url, req);
   }
 
 }

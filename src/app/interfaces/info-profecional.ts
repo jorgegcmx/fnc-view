@@ -3,7 +3,7 @@ import { Curso } from "./curso"
 
 export interface InfoProfecional {
     idprofecional: number
-    fecha: string
+    fecha: string   
     status: string
     password: string
     nombrecliente: string
