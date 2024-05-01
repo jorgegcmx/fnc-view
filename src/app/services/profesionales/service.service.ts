@@ -30,4 +30,9 @@ export class ServiceService {
     return this.http.post<any>(url,profesional);
   }
 
+  getCursos(nombre:any): Observable<any> {
+    const url = 'http://localhost:8080/cursos/lista/'+nombre+'';
+    return this.http.get<any>(url);
+  }
+
 }

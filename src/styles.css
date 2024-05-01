@@ -12610,3 +12610,8 @@
   body.sidebar-toggled footer.sticky-footer {
     width: 100%;
   }
+
+  .anyClass {
+    height:440px;
+    overflow-y: scroll;
+  }

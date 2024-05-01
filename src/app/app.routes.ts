@@ -7,6 +7,7 @@ import { TablaComponent } from './components/profesionales/tabla/tabla.component
 import { RegistroComponent } from './components/global/registro/registro.component';
 import { ForgotPasswordComponent } from './components/global/forgot-password/forgot-password.component';
 import { MisCertificacionesComponent } from './components/sesion/profecionales/mis-certificaciones/mis-certificaciones.component';
+import { ListaCursosComponent } from './components/cursos/lista-cursos/lista-cursos.component';
 
 export const routes: Routes = [
     {
@@ -32,6 +33,10 @@ export const routes: Routes = [
             {
                 path: "dashboard",
                 component: MisCertificacionesComponent
+            },
+            {
+                path: "lista_cuersos",
+                component: ListaCursosComponent
             }
         ]
     }
