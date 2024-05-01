@@ -4,6 +4,20 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Cursos</h1>
+        <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+        <div class="input-group">
+            <input type="text" class="form-control bg-light border-2 small" placeholder="Buscar"
+                aria-label="Search" aria-describedby="basic-addon2" [(ngModel)]="buscar" name="buscar">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button" (click)="buscarLista()">
+                    <i class="fas fa-search fa-sm"></i>
+                </button>
+                <button class="btn btn-info" type="button" (click)="buscarTodos()">
+                    Todos
+                </button>
+            </div>
+        </div>
+    </form>
     </div>
     <div class="row anyClass">
         
