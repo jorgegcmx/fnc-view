@@ -13,30 +13,57 @@
                         <form class="user">
                             <div class="form-group row">
                                 <div class="col-sm-12 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                        placeholder="Nombre Completo">
+                                    <label for="ProfacionalObj">Selecciona la Agencia</label>
+                                    @if (DataAgencias$ | async; as resultObject) {
+                                    <select class="form-control" [(ngModel)]="ProfacionalObj.idagencia" name="idagencia"
+                                        id="idagencia">
+                                        @for (item of resultObject; track item.idclientes) {
+                                        <option value={{item.idclientes}}>
+                                            {{item.pais}}-{{item.estado}}-{{item.direccion}}</option>
+                                        }
+                                    </select>
+                                    }@else {
+                                    <div class="position-absolute top-50 start-50">
+                                        Cargando...
+                                    </div>
+                                    }
+
                                 </div>
-                             
+
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                                        placeholder="Nombre Completo" [(ngModel)]="ProfacionalObj.nombrecliente"
+                                        name="nombrecliente">
+                                </div>
                             </div>
                             <div class="form-group">
                                 <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                    placeholder="Email">
+                                    placeholder="Email" [(ngModel)]="ProfacionalObj.emailcliente" name="emailcliente">
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="password" class="form-control form-control-user"
-                                        id="exampleInputPassword" placeholder="Contraseña">
+                                        id="exampleInputPassword" placeholder="Contraseña"
+                                        [(ngModel)]="ProfacionalObj.password" name="password">
                                 </div>
                                 <div class="col-sm-6">
                                     <input type="password" class="form-control form-control-user"
-                                        id="exampleRepeatPassword" placeholder="Repite la Contraseña">
+                                        id="exampleRepeatPassword" placeholder="Repite la Contraseña"
+                                        [(ngModel)]="password" name="password">
                                 </div>
                             </div>
-                            <a href="./login" class="btn btn-primary btn-user btn-block">
+                            @if (smg) {
+                            <div class="alert alert-success">
+                                {{text}}, recibiras un email para activar tu cuenta, ve a tu correo!
+                            </div>
+                            }
+                            <a (click)="save()" class="btn btn-primary btn-user btn-block">
                                 Crear!
                             </a>
-                            
                         </form>
+                        <!--pre>Form value: {{ ProfacionalObj | json }}</pre-->
                         <hr>
                         <div class="text-center">
                             <a class="small" href="./forgot-password">Olvidaste tu contraseña?</a>

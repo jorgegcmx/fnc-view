@@ -9,7 +9,7 @@ import { LoginService } from '../../../services/login/login.service';
   templateUrl: './forgot-password.component.html',
   styleUrl: './forgot-password.component.css'
 })
-export class ForgotPasswordComponent implements OnDestroy {
+export class ForgotPasswordComponent {
   email!: string
   msg!: boolean
 
@@ -18,9 +18,7 @@ export class ForgotPasswordComponent implements OnDestroy {
     this.msg = false;
   }
 
-  ngOnDestroy(): void {
-
-  }
+  
   resendPassword() {
     this.service.ResendPassword(this.email).subscribe((res) => {
       this.msg = res.enviado;

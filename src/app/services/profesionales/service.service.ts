@@ -20,4 +20,14 @@ export class ServiceService {
     return this.http.get<any>(url);
   }
 
+  getDataAgencias(): Observable<any> {
+    const url = 'http://localhost:8080/agencias/lista';
+    return this.http.get<any>(url);
+  }
+
+  getSaveProfecional(profesional:any): Observable<any> {
+    const url = 'http://localhost:8080/profesionales/registro';
+    return this.http.post<any>(url,profesional);
+  }
+
 }

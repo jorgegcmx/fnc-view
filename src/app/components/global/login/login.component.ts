@@ -23,8 +23,7 @@ export class LoginComponent {
   }
 
   SingIn() {
-    this.service.LoginService(this.loginObj).subscribe((res) => {
-      console.log(res);
+    this.service.LoginService(this.loginObj).subscribe((res) => {     
       if (res.isLogged) {
         this.service.setToken(res.user, res.userId);
         this.router.navigateByUrl('/dashboard');
