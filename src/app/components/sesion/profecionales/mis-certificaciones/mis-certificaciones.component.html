@@ -30,6 +30,8 @@
                                     <th>Código</th>
                                     <th>Descripción</th>
                                     <th>Registrado</th>
+                                    <th>Estatus de Pago</th>
+                                    <th>Importe</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -42,6 +44,8 @@
                                     <td>{{item.codigo}}</td>
                                     <td>{{item.descripcion}}</td>
                                     <td>{{item.fecha_registro}}</td>
+                                    <td>{{item.status_pay}} </td>
+                                    <td>${{item.total_pay}} </td>
                                 </tr>
                                 }
                             </tbody>
