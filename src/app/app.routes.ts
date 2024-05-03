@@ -10,6 +10,12 @@ import { ListaCursosComponent } from './components/cursos/lista-cursos/lista-cur
 import { PagosPayComponent } from './components/global/pagos-pay/pagos-pay.component';
 import { ConsultaCertificadoComponent } from './components/global/consulta-certificado/consulta-certificado.component';
 import { LoginGuard } from './components/guards/login.guard';
+import { LayoutAdminComponent } from './components/global/layout-admin/layout-admin.component';
+import { ListaSolicitudesComponent } from './components/sesion/admin/solicitudes/lista-solicitudes/lista-solicitudes.component';
+import { ListaAgeciasComponent } from './components/sesion/admin/agencias/lista-agecias/lista-agecias.component';
+import { ListaProfesionalesComponent } from './components/sesion/admin/profesionales/lista-profesionales/lista-profesionales.component';
+import { ListaDeCursosComponent } from './components/sesion/admin/cursos/lista-de-cursos/lista-de-cursos.component';
+
 
 export const routes: Routes = [
   {
@@ -43,7 +49,7 @@ export const routes: Routes = [
         canActivate: [LoginGuard],
       },
       {
-        path: 'lista_cuersos',
+        path: 'lista_cursos',
         component: ListaCursosComponent,
         canActivate: [LoginGuard],
       },
@@ -51,6 +57,28 @@ export const routes: Routes = [
         path: 'payment',
         component: PagosPayComponent,
         canActivate: [LoginGuard],
+      },
+    ],
+  },
+  {
+    path: '',
+    component: LayoutAdminComponent,
+    children: [
+      {
+        path: 'solicitudes',
+        component: ListaSolicitudesComponent
+      },
+      {
+        path: 'cursos',
+        component: ListaDeCursosComponent
+      },
+      {
+        path: 'agencias',
+        component: ListaAgeciasComponent
+      },
+      {
+        path: 'profesionales',
+        component: ListaProfesionalesComponent
       },
     ],
   },
