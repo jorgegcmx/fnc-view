@@ -32,4 +32,8 @@ export class LoginService {
     return this.cookies.get("userID");
   }
 
+  cerrarSesion(){
+    this.cookies.set("userID", '');
+  }
+
 }

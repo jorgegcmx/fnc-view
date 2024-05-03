@@ -9,45 +9,49 @@ import { MisCertificacionesComponent } from './components/sesion/profecionales/m
 import { ListaCursosComponent } from './components/cursos/lista-cursos/lista-cursos.component';
 import { PagosPayComponent } from './components/global/pagos-pay/pagos-pay.component';
 import { ConsultaCertificadoComponent } from './components/global/consulta-certificado/consulta-certificado.component';
-
+import { LoginGuard } from './components/guards/login.guard';
 
 export const routes: Routes = [
-    {
-        path: "",
-        redirectTo: 'login', pathMatch: 'full'
-    },
-    {
-        path: "login",
-        component: LoginComponent
-    },
-    {
-        path: "registro",
-        component: RegistroComponent
-    },
-    {
-        path: "forgot-password",
-        component: ForgotPasswordComponent
-    },
-    {
-        path: "consulta-certificado",
-        component: ConsultaCertificadoComponent
-    },
-    {
-        path: "",
-        component: LayoutComponent,
-        children: [
-            {
-                path: "dashboard",
-                component: MisCertificacionesComponent
-            },
-            {
-                path: "lista_cuersos",
-                component: ListaCursosComponent
-            },
-            {
-                path: "payment",
-                component: PagosPayComponent
-            }
-        ]
-    }
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'registro',
+    component: RegistroComponent,
+  },
+  {
+    path: 'forgot-password',
+    component: ForgotPasswordComponent,
+  },
+  {
+    path: 'consulta-certificado',
+    component: ConsultaCertificadoComponent,
+  },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'dashboard',
+        component: MisCertificacionesComponent,
+        canActivate: [LoginGuard],
+      },
+      {
+        path: 'lista_cuersos',
+        component: ListaCursosComponent,
+        canActivate: [LoginGuard],
+      },
+      {
+        path: 'payment',
+        component: PagosPayComponent,
+        canActivate: [LoginGuard],
+      },
+    ],
+  },
 ];
