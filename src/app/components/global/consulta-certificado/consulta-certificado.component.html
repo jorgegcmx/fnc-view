@@ -1,0 +1,100 @@
+<div class="container">
+    <div class="pm-certificate-border col-xs-6">
+        <div class="row pm-certificate-header">
+            <div class="pm-certificate-title  col-xs-12 text-center" style="margin-top: 20px;">
+                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <h4>Ingresa el numero de certificado a consultar</h4>
+                    <div class="input-group">
+                        <input type="text" class="form-control bg-light border-2 small" placeholder="Buscar"
+                            aria-label="Search" aria-describedby="basic-addon2" [(ngModel)]="buscar" name="buscar">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" (click)="buscarLista()">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@if(muestracer){
+<div class="container pm-certificate-container" style="margin-top: 10px;">
+    <div class="pm-certificate-border col-xs-6" >
+        <div class="row pm-certificate-header">
+            <div class="pm-certificate-title  col-xs-12 text-center">
+                <img src="https://static.wixstatic.com/media/f5b804_db42016bd8fc46c0adda5655a8869b12~mv2.png/v1/fill/w_815,h_163,al_c,q_85,usm_2.00_1.00_0.00,enc_auto/Banner-Letras-Funcaes-22.png"
+                    width="50%">
+            </div>
+        </div>
+        <div class="row pm-certificate-body">
+            <div class="pm-certificate-block">
+                <div class="col-xs-6">
+                    <div class="row">
+                        <div class="col-xs-2"><!-- LEAVE EMPTY --></div>
+                        <div class="pm-certificate-name underline margin-0 col-xs-8 text-center">
+                            <span class="pm-name-text bold">{{certifocado.articulos.nombre}}-{{certifocado.articulos.descripcion}}</span>
+                        </div>
+                        <div class="col-xs-2"><!-- LEAVE EMPTY --></div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="row">
+                        <div class="col-xs-2"><!-- LEAVE EMPTY --></div>
+                        <div class="pm-earned col-xs-8 text-center">
+                            <span class="pm-earned-text padding-0 block">Interinato completado por {{certifocado.profecionales.nombrecliente}}</span>
+                            <span class="pm-credits-text block bold sans">{{certifocado.articulos.codigo}}</span>
+                        </div>
+                        <div class="col-xs-2"><!-- LEAVE EMPTY --></div>
+                        <div class="col-xs-12"></div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="row">
+                        <div class="col-xs-2"><!-- LEAVE EMPTY --></div>
+                        <div class="pm-course-title col-xs-8 text-center">
+                            <span class="pm-earned-text block cursive">No. Certificado {{certifocado.certificado.nocertificado}}</span>
+                        </div>
+                        <div class="col-xs-2"><!-- LEAVE EMPTY --></div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="row">
+                        <div class="col-xs-2"><!-- LEAVE EMPTY --></div>
+                        <div class="pm-course-title underline col-xs-8 text-center">
+                            <span class="pm-credits-text block bold sans"><b>Agencia </b>{{certifocado.agencias.razon_social}}//{{certifocado.agencias.pais}}//{{certifocado.agencias.estado}}//{{certifocado.agencias.municipio}}//{{certifocado.agencias.direccion}}</span>
+                        </div>
+                        <div class="col-xs-2"><!-- LEAVE EMPTY --></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-6">
+                <div class="row">
+                    <div class="pm-certificate-footer">
+                        <div class="col-xs-4 pm-certified col-xs-4 text-center">
+                            <span class="pm-credits-text block sans">Fecha de expedición: {{certifocado.certificado.fecha}}</span>
+                            <span class="pm-empty-space block underline"></span>
+                            <span class="bold block">Dirección General</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+@if(loadding){
+<div class="container">
+    <div class="pm-certificate-border col-xs-6">
+        <div class="row pm-certificate-header">
+            <div class="pm-certificate-title  col-xs-12 text-center" style="margin-top: 50px;">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}

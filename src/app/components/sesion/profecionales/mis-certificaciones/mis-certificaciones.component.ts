@@ -14,18 +14,18 @@ import { LoginService } from '../../../../services/login/login.service';
 })
 export class MisCertificacionesComponent implements OnInit {
 
-  UserId: any;
+  UserId: string;
   public DataHistorial$!: Observable<InfoProfecional>;
   constructor(private service: ServiceService, private servicelogin: LoginService) {
-    this.UserId = this.servicelogin.getID();
+    this.servicelogin.getID();
+    this.UserId = '1';
   }
 
   ngOnInit(): void {
-    this.DataHistorial$ = this.service.getDataById(this.UserId).pipe(catchError((error: string) => {
-      console.log(error);
+    console.log(this.servicelogin.getID());
+    this.DataHistorial$ = this.service.getDataById(this.servicelogin.getID()).pipe(catchError((error: string) => {
+      //console.log(error);
       return EMPTY;
     }));
-
   }
-
 }

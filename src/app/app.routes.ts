@@ -8,6 +8,7 @@ import { ForgotPasswordComponent } from './components/global/forgot-password/for
 import { MisCertificacionesComponent } from './components/sesion/profecionales/mis-certificaciones/mis-certificaciones.component';
 import { ListaCursosComponent } from './components/cursos/lista-cursos/lista-cursos.component';
 import { PagosPayComponent } from './components/global/pagos-pay/pagos-pay.component';
+import { ConsultaCertificadoComponent } from './components/global/consulta-certificado/consulta-certificado.component';
 
 
 export const routes: Routes = [
@@ -26,6 +27,10 @@ export const routes: Routes = [
     {
         path: "forgot-password",
         component: ForgotPasswordComponent
+    },
+    {
+        path: "consulta-certificado",
+        component: ConsultaCertificadoComponent
     },
     {
         path: "",

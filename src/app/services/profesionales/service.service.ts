@@ -40,4 +40,9 @@ export class ServiceService {
     return this.http.post<any>(url, req);
   }
 
+  getCertificado(req: any): Observable<any> {
+    const url = 'http://localhost:8080/detalle/burcarCer/'+req+'';
+    return this.http.get<any>(url);
+  }
+
 }
