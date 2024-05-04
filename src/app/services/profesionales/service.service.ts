@@ -45,4 +45,15 @@ export class ServiceService {
     return this.http.get<any>(url);
   }
 
+
+  getlistaSolicitudes(): Observable<any>{
+    const url = 'http://localhost:8080/detalle/lista';
+    return this.http.get<any>(url);
+  }
+
+  ActualizaSolicitud(req:any): Observable<any>{
+    const url = 'http://localhost:8080/detalle/guarda';
+    return this.http.post<any>(url,req);
+  }
+
 }

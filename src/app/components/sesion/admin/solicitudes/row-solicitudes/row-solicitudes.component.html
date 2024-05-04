@@ -1,0 +1,30 @@
+<td scope="row">{{solicitud.nombre}}</td>
+<td>
+    @if (solicitud.nocertificado == null) {
+    <input type="text" class="form-control" [(ngModel)]="nocer" name="nocer">
+    }@else{
+    {{solicitud.nocertificado}}
+    }
+</td>
+<td>
+    @if (solicitud.nocertificado == null) {
+    <input type="date" class="form-control" [(ngModel)]="fechacer" name="fechacer">
+    }@else{
+    {{solicitud.fecha}}
+    }
+</td>
+<td>{{solicitud.curso}}</td>
+<td>${{solicitud.costo}}</td>
+<td>{{solicitud.estatus}}</td>
+<td>{{solicitud.id_pay}}</td>
+<td>{{solicitud.status_pay}}</td>
+<td>${{solicitud.total_pay}}</td>
+<td>{{solicitud.method_pay}}</td>
+<td>
+
+    @if (solicitud.nocertificado == null) {
+    <a class="btn btn-primary btn-circle btn-sm" (click)="save()">
+        <i class="fas fa-save"></i>
+    </a>
+    }
+</td>
