@@ -21,7 +21,7 @@ export class ListaCursosComponent implements OnInit {
   buscar!: string;
  
 
-  constructor(private service: ServiceService, private loginservice: LoginService) {
+  constructor(private service: ServiceService) {
     this.nombre = '1';
     this.buscar = '';
     

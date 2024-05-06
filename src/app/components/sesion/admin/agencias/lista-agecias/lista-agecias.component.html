@@ -1,1 +1,61 @@
-<p>lista-agecias works!</p>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+                <input type="text" class="form-control bg-light border-2 small" placeholder="Nombre" aria-label="Search"
+                    aria-describedby="basic-addon2" [(ngModel)]="buscar" name="buscar">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" (click)="buscarLista()">
+                        <i class="fas fa-search fa-sm"></i>
+                    </button>
+                    <button class="btn btn-info" type="button" (click)="buscarTodos()">
+                        Todos
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Page Heading -->
+    <div class="row anyClass">
+        <div class="col-lg-12">
+            @if (DataAgencias$ | async; as resultObject) {
+            <div class="card shadow mb-12">
+                <div class="card-header">
+                    <h6 class="h3 mb-0 text-gray-800">Cursos</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nombre Agencia</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Telefono</th>
+                                    <th scope="col">Dirección</th>
+                                    <th scope="col">Pais</th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col">Municipio</th>                                  
+                                 
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (agencia of resultObject; track agencia.idclientes) {
+                                <tr [agencia]='agencia'></tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            }@else {
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->

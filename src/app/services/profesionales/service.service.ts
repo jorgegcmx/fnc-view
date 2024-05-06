@@ -46,14 +46,19 @@ export class ServiceService {
   }
 
 
-  getlistaSolicitudes(): Observable<any>{
-    const url = 'http://localhost:8080/detalle/lista';
+  getlistaSolicitudes(nombre: any): Observable<any>{
+    const url = 'http://localhost:8080/detalle/lista/'+nombre+'';
     return this.http.get<any>(url);
   }
 
   ActualizaSolicitud(req:any): Observable<any>{
     const url = 'http://localhost:8080/detalle/guarda';
     return this.http.post<any>(url,req);
+  }
+
+  getAgencias(nombre: any): Observable<any> {
+    const url = 'http://localhost:8080/agencias/lista';
+    return this.http.get<any>(url);
   }
 
 }

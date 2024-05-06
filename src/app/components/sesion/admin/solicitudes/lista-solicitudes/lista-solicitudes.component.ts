@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { EMPTY, Observable, catchError } from 'rxjs';
-import { InfoProfecional } from '../../../../../interfaces/info-profecional';
 import { ServiceService } from '../../../../../services/profesionales/service.service';
 import { LoginService } from '../../../../../services/login/login.service';
 import { CommonModule, NgFor } from '@angular/common';
@@ -17,18 +16,17 @@ import { RowSolicitudesComponent } from '../row-solicitudes/row-solicitudes.comp
 })
 export class ListaSolicitudesComponent implements OnInit {
   buscar!: string;
-  nombre!: string;
-
+  nombre!: String;
   public DataHistorial$!: Observable<Solicitudes>;
   constructor(
-    private service: ServiceService,
-    private servicelogin: LoginService
+    private service: ServiceService
   ) {
-    this.servicelogin.getID();
+    this.nombre='1';
+
   }
 
   ngOnInit(): void {
-    this.DataHistorial$ = this.service.getlistaSolicitudes().pipe(
+    this.DataHistorial$ = this.service.getlistaSolicitudes(this.nombre).pipe(
       catchError((error: string) => {
         return EMPTY;
       })
@@ -36,17 +34,14 @@ export class ListaSolicitudesComponent implements OnInit {
   }
 
   buscarLista() {
-    /*
-    this.DataHistorial$ = this.service.getCursos(this.buscar).pipe(
+    this.DataHistorial$ = this.service.getlistaSolicitudes(this.buscar).pipe(
       catchError((error: string) => {
-        console.log(error);
         return EMPTY;
       })
     );
-    */
   }
   buscarTodos() {
-    this.DataHistorial$ = this.service.getlistaSolicitudes().pipe(
+    this.DataHistorial$ = this.service.getlistaSolicitudes('1').pipe(
       catchError((error: string) => {
         return EMPTY;
       })

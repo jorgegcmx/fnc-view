@@ -16,11 +16,13 @@
                 </div>
             </div>
         </form>
+       
     </div>
     <!-- Page Heading -->
     <div class="row anyClass">
         <div class="col-lg-12">
             @if (DataHistorial$ | async; as resultObject) {
+                <!--pre>{{ resultObject | json}}</pre-->
             <div class="card shadow mb-12">
                 <div class="card-header">
                     <h6 class="h3 mb-0 text-gray-800">Solicitudes</h6>
