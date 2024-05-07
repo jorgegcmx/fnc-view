@@ -61,4 +61,10 @@ export class ServiceService {
     return this.http.get<any>(url);
   }
 
+  guardaAgencias(agencia: any): Observable<any> {
+    const url = 'http://localhost:8080/agencias/guarda';
+    return this.http.post<any>(url, agencia);
+  }
+
+  
 }

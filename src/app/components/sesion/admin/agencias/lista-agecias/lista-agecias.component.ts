@@ -19,6 +19,7 @@ export class ListaAgeciasComponent {
 
   show!: boolean;
   Agencia!: AgeciasClass;
+  disable!: boolean;
 
   constructor(private service: ServiceService) {
     this.nombre = '1';
@@ -54,7 +55,38 @@ export class ListaAgeciasComponent {
   }
 
   showForm() {
+    this.Agencia = new AgeciasClass();
     this.show = this.show == false ? true : false;
+  }
+
+  Guarda() {
+    if (
+      this.Agencia.email_cliente.trim() != '' &&
+      this.Agencia.telefono.trim() != '' &&
+      this.Agencia.direccion.trim() != '' &&
+      this.Agencia.pais.trim() != '' &&
+      this.Agencia.estado.trim() != '' &&
+      this.Agencia.municipio.trim() != '' &&
+      this.Agencia.razon_social.trim() != ''
+    ) {
+      this.disable = true;
+      this.service
+        .guardaAgencias(this.Agencia)
+        .pipe(
+          catchError((error: string) => {
+            console.log(error);
+            this.disable = false;
+            return EMPTY;
+          })
+        )
+        .subscribe(() => {
+          this.disable = false;
+          this.show = false;
+          this.buscarTodos();
+        });
+    } else {
+      alert('¡Todos los datos son requeridos!');
+    }
   }
 }
 
@@ -64,7 +96,7 @@ export class AgeciasClass {
   contrasena_cliente: any;
   telefono: string;
   direccion: string;
-  pais: string
+  pais: string;
   estado: string;
   municipio: string;
   rfc: any;
@@ -77,12 +109,11 @@ export class AgeciasClass {
     this.contrasena_cliente = null;
     this.telefono = '';
     this.direccion = '';
-    this.pais='';
+    this.pais = '';
     this.estado = '';
     this.municipio = '';
     this.rfc = null;
     this.razon_social = '';
     this.idusuarios_admin = 2;
-   
   }
 }

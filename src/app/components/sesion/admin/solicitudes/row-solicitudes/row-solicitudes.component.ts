@@ -16,15 +16,23 @@ export class RowSolicitudesComponent {
   fechacer!: string;
   @Input() solicitud!: Solicitud;
 
-  constructor(private service: ServiceService) {}
+  constructor(private service: ServiceService) {
+    this.fechacer = '';
+    this.nocer = '';
+  }
 
   save() {
-    this.solicitud.fecha = this.fechacer;
-    this.solicitud.nocertificado = this.nocer;
-    this.service.ActualizaSolicitud(this.solicitud).subscribe((res) => {
-      console.log(res);
-      this.solicitud.fecha = res.articulosdeprofecionales.fecha;
-      this.solicitud.nocertificado = res.articulosdeprofecionales.nocertificado;
-    });
+    if (this.fechacer != '' && this.nocer != '') {
+      this.solicitud.fecha = this.fechacer;
+      this.solicitud.nocertificado = this.nocer;
+      this.service.ActualizaSolicitud(this.solicitud).subscribe((res) => {
+        console.log(res);
+        this.solicitud.fecha = res.articulosdeprofecionales.fecha;
+        this.solicitud.nocertificado =
+          res.articulosdeprofecionales.nocertificado;
+      });
+    } else {
+      alert('¡El numero de certificado y la fecha son obligatorios!');
+    }
   }
 }

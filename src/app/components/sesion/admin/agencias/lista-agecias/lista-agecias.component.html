@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <pre>{{Agencia | json }}</pre>
+                    <!--pre>{{Agencia | json }}</pre-->
                     @if(show){
                     <div class="row g-4 align-items-center" style="margin: 4px;">
                         <div class="col-auto">
@@ -45,8 +45,7 @@
                         </div>
                         <div class="col-auto">
                             <label for="">Dirección</label>
-                            <input type="text" class="form-control" [(ngModel)]="Agencia.direccion"
-                                name="direccion">
+                            <input type="text" class="form-control" [(ngModel)]="Agencia.direccion" name="direccion">
                         </div>
                         <div class="col-auto">
                             <label for="">País</label>
@@ -70,7 +69,7 @@
                     </div>
                     <div class="row g-1 align-items-center" style="margin: 4px;">
                         <div class="col-auto">
-                            <button class="btn btn-primary">Guardar</button>
+                            <button class="btn btn-primary" (click)="Guarda()" disabled="{{disable}}">Guardar</button>
                         </div>
                     </div>
                     }@else{
@@ -86,6 +85,7 @@
                                     <th scope="col">Pais</th>
                                     <th scope="col">Estado</th>
                                     <th scope="col">Municipio</th>
+                                    <th scope="col">Acciones</th>
 
                                 </tr>
                             </thead>
