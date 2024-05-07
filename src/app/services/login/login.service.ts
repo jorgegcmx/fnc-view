@@ -10,7 +10,7 @@ import { environment } from '../../../environments/environment';
 export class LoginService {
   constructor(private http: HttpClient, private cookies: CookieService) {}
 
-  LoginService(req: any): Observable<any> {
+  LoginService(req: any): Observable<any> {   
     const url = environment.apiUrlBase + '/login/login_profesional';
     return this.http.post<any>(url, req);
   }
