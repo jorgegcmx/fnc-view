@@ -1,4 +1,4 @@
 export const environment = {
-    apiUrlBase: `http://localhost:8080`,
+    apiUrlBase: `https://fnc-service.onrender.com`,
     production: true
 };
