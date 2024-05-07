@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { LoginService } from '../../../services/login/login.service';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-login-admin',
   standalone: true,
   imports: [FormsModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
+  templateUrl: './login-admin.component.html',
+  styleUrl: './login-admin.component.css',
 })
-export class LoginComponent {
+export class LoginAdminComponent {
   loginObj: Login;
   isLogged: boolean;
   msg: boolean;
@@ -24,11 +24,11 @@ export class LoginComponent {
 
   SingIn() {
     this.loading = true;
-    this.service.LoginService(this.loginObj).subscribe((res) => {
+    this.service.LoginServiceAdmin(this.loginObj).subscribe((res) => {
       if (res.isLogged) {
-        this.service.setToken(res.user, res.userId, '');
+        this.service.setToken(res.user, res.userId, res.permisos);
         this.loading = false;
-        this.router.navigateByUrl('/dashboard');
+        this.router.navigateByUrl('/solicitudes');
       } else {
         this.msg = false;
         this.loading = false;

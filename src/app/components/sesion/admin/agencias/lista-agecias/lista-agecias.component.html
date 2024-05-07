@@ -23,9 +23,58 @@
             @if (DataAgencias$ | async; as resultObject) {
             <div class="card shadow mb-12">
                 <div class="card-header">
-                    <h6 class="h3 mb-0 text-gray-800">Cursos</h6>
+                    <div class="d-flex justify-content-between">
+                        <h6 class="h3 mb-0 text-gray-800">Agencias</h6>
+                        <button class="btn btn-success btn-circle" (click)="showForm()">
+                            {{show?'-':'+'}}
+                        </button>
+                    </div>
                 </div>
                 <div class="card-body">
+                    <pre>{{Agencia | json }}</pre>
+                    @if(show){
+                    <div class="row g-4 align-items-center" style="margin: 4px;">
+                        <div class="col-auto">
+                            <label for="">Email</label>
+                            <input type="email" class="form-control" [(ngModel)]="Agencia.email_cliente"
+                                name="email_cliente">
+                        </div>
+                        <div class="col-auto">
+                            <label for="">Telefono</label>
+                            <input type="text" class="form-control" [(ngModel)]="Agencia.telefono" name="telefono">
+                        </div>
+                        <div class="col-auto">
+                            <label for="">Dirección</label>
+                            <input type="text" class="form-control" [(ngModel)]="Agencia.direccion"
+                                name="direccion">
+                        </div>
+                        <div class="col-auto">
+                            <label for="">País</label>
+                            <input type="text" class="form-control" [(ngModel)]="Agencia.pais" name="pais">
+                        </div>
+                    </div>
+                    <div class="row g-4 align-items-center" style="margin: 4px;">
+                        <div class="col-auto">
+                            <label for="">Estado</label>
+                            <input type="text" class="form-control" [(ngModel)]="Agencia.estado" name="estado">
+                        </div>
+                        <div class="col-auto">
+                            <label for="">Municipio</label>
+                            <input type="text" class="form-control" [(ngModel)]="Agencia.municipio" name="municipio">
+                        </div>
+                        <div class="col-auto">
+                            <label for="">Nombre de Agencia</label>
+                            <input type="text" class="form-control" [(ngModel)]="Agencia.razon_social"
+                                name="razon_social">
+                        </div>
+                    </div>
+                    <div class="row g-1 align-items-center" style="margin: 4px;">
+                        <div class="col-auto">
+                            <button class="btn btn-primary">Guardar</button>
+                        </div>
+                    </div>
+                    }@else{
+
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -36,8 +85,8 @@
                                     <th scope="col">Dirección</th>
                                     <th scope="col">Pais</th>
                                     <th scope="col">Estado</th>
-                                    <th scope="col">Municipio</th>                                  
-                                 
+                                    <th scope="col">Municipio</th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -47,7 +96,7 @@
                             </tbody>
                         </table>
                     </div>
-
+                    }
                 </div>
             </div>
             }@else {

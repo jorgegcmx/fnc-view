@@ -17,8 +17,9 @@
                                     <select class="form-control" [(ngModel)]="ProfacionalObj.idagencia" name="idagencia"
                                         id="idagencia">
                                         @for (item of resultObject; track item.idclientes) {
-                                        <option value={{item.idclientes}}>
-                                            {{item.pais}}-{{item.estado}}-{{item.direccion}}</option>
+                                        <option style="font-size: small;" value={{item.idclientes}}>
+                                          {{item.pais}}, {{item.estado}}, {{item.direccion}}
+                                        </option>
                                         }
                                     </select>
                                     }@else {
@@ -26,9 +27,7 @@
                                         Cargando...
                                     </div>
                                     }
-
                                 </div>
-
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12 mb-3 mb-sm-0">
@@ -58,7 +57,7 @@
                                 {{text}}, recibiras un email para activar tu cuenta, ve a tu correo!
                             </div>
                             }
-                            <button (click)="save()" class="btn btn-primary btn-user btn-block" [disabled]="disabled" >
+                            <button (click)="save()" class="btn btn-primary btn-user btn-block" [disabled]="disabled">
                                 Crear!
                             </button>
                         </form>

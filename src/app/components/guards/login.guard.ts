@@ -6,10 +6,13 @@ export const LoginGuard = () => {
   const router = inject(Router);
   const loginService = inject(LoginService);
   let id = loginService.getID();
-  if (id !== '') {
+  let permisos = loginService.getPermisos();
+  if (id !== '' && permisos=='') {
     return true;
   } else {
     router.navigate(['/login']);
     return false;
   }
 };
+
+

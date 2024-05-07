@@ -17,9 +17,14 @@ export class ListaAgeciasComponent {
   nombre!: string;
   buscar!: string;
 
+  show!: boolean;
+  Agencia!: AgeciasClass;
+
   constructor(private service: ServiceService) {
     this.nombre = '1';
     this.buscar = '';
+    this.show = false;
+    this.Agencia = new AgeciasClass();
   }
 
   ngOnInit() {
@@ -46,5 +51,38 @@ export class ListaAgeciasComponent {
         return EMPTY;
       })
     );
+  }
+
+  showForm() {
+    this.show = this.show == false ? true : false;
+  }
+}
+
+export class AgeciasClass {
+  idclientes: any;
+  email_cliente: string;
+  contrasena_cliente: any;
+  telefono: string;
+  direccion: string;
+  pais: string
+  estado: string;
+  municipio: string;
+  rfc: any;
+  razon_social: string;
+  idusuarios_admin: number;
+
+  constructor() {
+    this.idclientes = null;
+    this.email_cliente = '';
+    this.contrasena_cliente = null;
+    this.telefono = '';
+    this.direccion = '';
+    this.pais='';
+    this.estado = '';
+    this.municipio = '';
+    this.rfc = null;
+    this.razon_social = '';
+    this.idusuarios_admin = 2;
+   
   }
 }
