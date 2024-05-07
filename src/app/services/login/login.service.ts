@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -10,17 +11,17 @@ export class LoginService {
   constructor(private http: HttpClient, private cookies: CookieService) {}
 
   LoginService(req: any): Observable<any> {
-    const url = 'http://localhost:8080/login/login_profesional';
+    const url = environment.apiUrlBase + '/login/login_profesional';
     return this.http.post<any>(url, req);
   }
 
   LoginServiceAdmin(req: any): Observable<any> {
-    const url = 'http://localhost:8080/login/login_usuario';
+    const url = environment.apiUrlBase + '/login/login_usuario';
     return this.http.post<any>(url, req);
   }
 
   ResendPassword(req: any): Observable<any> {
-    const url = 'http://localhost:8080/email/resend/' + req + '';
+    const url = environment.apiUrlBase + '/email/resend/' + req + '';
     return this.http.get<any>(url);
   }
 
