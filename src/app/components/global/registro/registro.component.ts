@@ -3,11 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { EMPTY, Observable, catchError } from 'rxjs';
 import { ServiceService } from '../../../services/profesionales/service.service';
 import { FormsModule } from '@angular/forms';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
   standalone: true,
-  imports: [CommonModule, NgFor, FormsModule],
+  imports: [CommonModule, NgFor, FormsModule,RouterLink, RouterLinkActive],
   templateUrl: './registro.component.html',
   styleUrl: './registro.component.css'
 })
@@ -54,12 +55,15 @@ export class RegistroComponent implements OnInit {
           });
         } else {
           alert("Todos los datos son requeridos!");
+          this.disabled=false;
         }
       } else {
         alert("Las contraseñas no conciden!");
+        this.disabled=false;
       }
     } else {
       alert("Todos los datos son requeridos!");
+      this.disabled=false;
     }
   }
 
