@@ -36,17 +36,18 @@
                             <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
                         </div>
                     </div>
-                    <div class=" d-flex justify-content-between align-items-center">
+                    <!--div class=" d-flex justify-content-between align-items-center">
                         <div class="h5 mb-0 font-weight-bold text-gray-800 " style="padding: 15px;">
                             Costo:
                         </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800 " style="padding: 15px;">
                             ${{item.precio_mayoreo}}
                         </div>
-                    </div>
+                    </div-->
                 </div>
                 <div class="card-footer text-muted">
-                    <app-pagos-pay idarticulo="{{item.idarticulos}}" costo={{item.precio_mayoreo}}></app-pagos-pay>
+                    <app-btn-registro-curso idarticulo="{{item.idarticulos}}" costo={{item.precio_mayoreo}}></app-btn-registro-curso>                   
+                    <!--app-pagos-pay idarticulo="{{item.idarticulos}}" costo={{item.precio_mayoreo}}></app-pagos-pay-->
                 </div>
             </div>
         </div>

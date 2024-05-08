@@ -3,14 +3,14 @@ import { ServiceService } from '../../../services/profesionales/service.service'
 import { EMPTY, Observable, catchError } from 'rxjs';
 import { CommonModule, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { LoginService } from '../../../services/login/login.service';
 import { PagosPayComponent } from '../../global/pagos-pay/pagos-pay.component';
+import { BtnRegistroCursoComponent } from '../../global/btn-registro-curso/btn-registro-curso.component';
 
 
 @Component({
   selector: 'app-lista-cursos',
   standalone: true,
-  imports: [CommonModule, NgFor, FormsModule, PagosPayComponent],
+  imports: [CommonModule, NgFor, FormsModule, PagosPayComponent, BtnRegistroCursoComponent],
   templateUrl: './lista-cursos.component.html',
   styleUrl: './lista-cursos.component.css'
 })
@@ -18,13 +18,11 @@ export class ListaCursosComponent implements OnInit {
 
   public DataCursos$!: Observable<any[]>;
   nombre!: string;
-  buscar!: string;
- 
+  buscar!: string; 
 
   constructor(private service: ServiceService) {
     this.nombre = '1';
-    this.buscar = '';
-    
+    this.buscar = '';    
   }
 
   ngOnInit() {
@@ -33,7 +31,6 @@ export class ListaCursosComponent implements OnInit {
       return EMPTY;
     }));
   }
-
   buscarLista() {
     this.DataCursos$ = this.service.getCursos(this.buscar).pipe(catchError((error: string) => {
       console.log(error);

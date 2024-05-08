@@ -4,7 +4,7 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
-                <input type="text" class="form-control bg-light border-2 small" placeholder="Buscar" aria-label="Search"
+                <input type="text" class="form-control bg-light border-2 small" placeholder="Buscar por nombre" aria-label="Search"
                     aria-describedby="basic-addon2" [(ngModel)]="buscar" name="buscar">
                 <div class="input-group-append">
                     <button class="btn btn-primary" type="button" (click)="buscarLista()">
@@ -15,8 +15,7 @@
                     </button>
                 </div>
             </div>
-        </form>
-       
+        </form>       
     </div>
     <!-- Page Heading -->
     <div class="row anyClass">
@@ -38,6 +37,7 @@
                                     <th scope="col">Curso</th>
                                     <th scope="col">Costo</th>
                                     <th scope="col">Estatus</th>
+                                    <th scope="col">Agencia</th>
                                     <th scope="col">Id Pago</th>
                                     <th scope="col">Estatus de Pago</th>
                                     <th scope="col">Importe</th>
@@ -47,7 +47,7 @@
                             </thead>
                             <tbody>
                                 @for (solicitud of resultObject; track solicitud.id) {
-                                <tr [ngStyle]="{'color': solicitud.estatus == 'CERTIFICADO' ? '#1A9940' : '#0E0396 '}"
+                                <tr [ngStyle]="{'color': solicitud.estatus == 'C' ? '#1A9940' : '#0E0396 '}"
                                     [solicitud]='solicitud'>
                                 </tr>
                                 }

@@ -9,7 +9,7 @@ import { MisCertificacionesComponent } from './components/sesion/profecionales/m
 import { ListaCursosComponent } from './components/cursos/lista-cursos/lista-cursos.component';
 import { PagosPayComponent } from './components/global/pagos-pay/pagos-pay.component';
 import { ConsultaCertificadoComponent } from './components/global/consulta-certificado/consulta-certificado.component';
-import { LoginGuard} from './components/guards/login.guard';
+import { LoginGuard } from './components/guards/login.guard';
 import { LayoutAdminComponent } from './components/global/layout-admin/layout-admin.component';
 import { ListaSolicitudesComponent } from './components/sesion/admin/solicitudes/lista-solicitudes/lista-solicitudes.component';
 import { ListaAgeciasComponent } from './components/sesion/admin/agencias/lista-agecias/lista-agecias.component';
@@ -17,6 +17,7 @@ import { ListaProfesionalesComponent } from './components/sesion/admin/profesion
 import { ListaDeCursosComponent } from './components/sesion/admin/cursos/lista-de-cursos/lista-de-cursos.component';
 import { LoginAdminComponent } from './components/global/login-admin/login-admin.component';
 import { LoginGuardAdmin } from './components/guards/login.admin.guard';
+import { AgengiasSolicitudesComponent } from './components/sesion/agencias/agengias-solicitudes/agengias-solicitudes.component';
 
 export const routes: Routes = [
   {
@@ -72,22 +73,32 @@ export const routes: Routes = [
       {
         path: 'solicitudes',
         component: ListaSolicitudesComponent,
-        canActivate:[LoginGuardAdmin]
+        canActivate: [LoginGuardAdmin],
       },
       {
         path: 'cursos',
         component: ListaDeCursosComponent,
-        canActivate:[LoginGuardAdmin]
+        canActivate: [LoginGuardAdmin],
       },
       {
         path: 'agencias',
         component: ListaAgeciasComponent,
-        canActivate:[LoginGuardAdmin]
+        canActivate: [LoginGuardAdmin],
       },
       {
         path: 'profesionales',
         component: ListaProfesionalesComponent,
-        canActivate:[LoginGuardAdmin]
+        canActivate: [LoginGuardAdmin],
+      },
+    ],
+  },
+  {
+    path: '',
+    component: LayoutAdminComponent,
+    children: [
+      {
+        path: 'agencias-solicitudes',
+        component: AgengiasSolicitudesComponent,
       },
     ],
   },
