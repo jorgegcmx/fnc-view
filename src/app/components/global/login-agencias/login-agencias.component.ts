@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginService } from '../../../services/login/login.service';
-import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-login-agencias',
   standalone: true,
-  imports: [FormsModule, RouterLink, RouterLinkActive],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
+  imports: [FormsModule],
+  templateUrl: './login-agencias.component.html',
+  styleUrl: './login-agencias.component.css'
 })
-export class LoginComponent {
+export class LoginAgenciasComponent {
   loginObj: Login;
   isLogged: boolean;
   msg: boolean;
@@ -24,11 +24,11 @@ export class LoginComponent {
 
   SingIn() {
     this.loading = true;
-    this.service.LoginService(this.loginObj).subscribe((res) => {
+    this.service.LoginServiceAgencia(this.loginObj).subscribe((res) => {
       if (res.isLogged) {
-        this.service.setToken(res.user, res.userId, '','');
+        this.service.setToken(res.user, res.userId, res.permisos,res.perfil);
         this.loading = false;
-        this.router.navigateByUrl('/dashboard');
+        this.router.navigateByUrl('/agencias-solicitudes');
       } else {
         this.msg = false;
         this.loading = false;

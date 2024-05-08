@@ -26,7 +26,7 @@ export class LoginAdminComponent {
     this.loading = true;
     this.service.LoginServiceAdmin(this.loginObj).subscribe((res) => {
       if (res.isLogged) {
-        this.service.setToken(res.user, res.userId, res.permisos);
+        this.service.setToken(res.user, res.userId, res.permisos,'');
         this.loading = false;
         this.router.navigateByUrl('/solicitudes');
       } else {

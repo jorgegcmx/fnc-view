@@ -16,8 +16,10 @@ import { ListaAgeciasComponent } from './components/sesion/admin/agencias/lista-
 import { ListaProfesionalesComponent } from './components/sesion/admin/profesionales/lista-profesionales/lista-profesionales.component';
 import { ListaDeCursosComponent } from './components/sesion/admin/cursos/lista-de-cursos/lista-de-cursos.component';
 import { LoginAdminComponent } from './components/global/login-admin/login-admin.component';
-import { LoginGuardAdmin } from './components/guards/login.admin.guard';
+import { LoginGuardAdmin, LoginGuardAgencia } from './components/guards/login.admin.guard';
 import { AgengiasSolicitudesComponent } from './components/sesion/agencias/agengias-solicitudes/agengias-solicitudes.component';
+import { LayoutAgenciasComponent } from './components/global/layout-agencias/layout-agencias.component';
+import { LoginAgenciasComponent } from './components/global/login-agencias/login-agencias.component';
 
 export const routes: Routes = [
   {
@@ -28,6 +30,10 @@ export const routes: Routes = [
   {
     path: 'admin',
     component: LoginAdminComponent,
+  },
+  {
+    path: 'manager',
+    component: LoginAgenciasComponent,
   },
   {
     path: 'login',
@@ -94,11 +100,12 @@ export const routes: Routes = [
   },
   {
     path: '',
-    component: LayoutAdminComponent,
+    component: LayoutAgenciasComponent,
     children: [
       {
         path: 'agencias-solicitudes',
         component: AgengiasSolicitudesComponent,
+        canActivate:[LoginGuardAgencia]
       },
     ],
   },

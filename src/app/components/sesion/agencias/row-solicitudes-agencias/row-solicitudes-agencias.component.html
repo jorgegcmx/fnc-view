@@ -1,0 +1,26 @@
+<td scope="row">{{solicitud.id}}</td>
+<td>{{solicitud.nombreprofesional}}</td>
+<td> {{solicitud.nocertificado}}</td>
+<td> {{solicitud.fecha}}</td>
+<td>{{solicitud.nombrecurso}}</td>
+<td>${{solicitud.costo}}</td>
+<td>{{solicitud.estatus=='C'?'Certificado':'Registrado'}}</td>
+<td>{{solicitud.id_pay}}</td>
+<td>{{solicitud.status_pay}}</td>
+<td>${{solicitud.total_pay}}</td>
+<td>{{solicitud.method_pay}}</td>
+<td>
+    @if (solicitud.nocertificado == null) {
+    <button class="btn btn-light btn-icon-split" (click)="Pay(solicitud)" style="margin-bottom: 4px;">
+        <span class="icon text-gray-600">
+            <i class="fas fa-money"></i>
+        </span>
+        <span class="text">{{showPaypalButton?'-':'+'}}</span>
+    </button>
+
+    @if(showPaypalButton){
+    <app-pagos-pay idarticulo={{idarticulo}} costo={{costo}} idprofecional={{idprofecional}} id="{{id}}"></app-pagos-pay>
+    }
+
+    }
+</td>

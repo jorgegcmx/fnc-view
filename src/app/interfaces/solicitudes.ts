@@ -4,8 +4,8 @@ export interface Solicitud {
   id: number;
   idarticulo: number;
   nocertificado?: string;
-  nombre_profesional: string;
-  nombre_curso: string;
+  nombreprofesional: string;
+  nombrecurso: string;
   fecha?: string;
   costo: number;
   idprofecional: number;
@@ -17,5 +17,5 @@ export interface Solicitud {
   email_pay?: string;
   total_pay?: string;
   method_pay?: string;
-  nombre_agencia?: string;
+  nombreagencia?: string;
 }

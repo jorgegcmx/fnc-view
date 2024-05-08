@@ -64,4 +64,10 @@ export class ServiceService {
     const url = environment.apiUrlBase + '/agencias/guarda';
     return this.http.post<any>(url, agencia);
   }
+
+
+  getlistaSolicitudesAgencia(idagencia: any,nombre: any): Observable<any> {
+    const url = environment.apiUrlBase + '/detalle/lista/'+idagencia+'/' + nombre + '';
+    return this.http.get<any>(url);
+  }
 }

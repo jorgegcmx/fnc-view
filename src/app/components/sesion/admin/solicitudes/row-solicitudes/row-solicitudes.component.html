@@ -1,4 +1,4 @@
-<td scope="row">{{solicitud.nombre_profesional}}</td>
+<td scope="row">{{solicitud.nombreprofesional}}</td>
 <td>
     @if (solicitud.nocertificado == null) {
     <input type="text" class="form-control" [(ngModel)]="nocer" name="nocer">
@@ -13,10 +13,10 @@
     {{solicitud.fecha}}
     }
 </td>
-<td>{{solicitud.nombre_curso}}</td>
+<td>{{solicitud.nombrecurso}}</td>
 <td>${{solicitud.costo}}</td>
 <td>{{solicitud.estatus=='C'?'Certificado':'Registrado'}}</td>
-<td>{{solicitud.nombre_agencia}}</td>
+<td>{{solicitud.nombreagencia}}</td>
 <td>{{solicitud.id_pay}}</td>
 <td>{{solicitud.status_pay}}</td>
 <td>${{solicitud.total_pay}}</td>

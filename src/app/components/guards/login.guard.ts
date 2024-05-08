@@ -7,12 +7,11 @@ export const LoginGuard = () => {
   const loginService = inject(LoginService);
   let id = loginService.getID();
   let permisos = loginService.getPermisos();
-  if (id !== '' && permisos=='') {
+  let perfil = loginService.getPerfil();
+  if (id !== '' && permisos == '' && perfil == '') {
     return true;
   } else {
     router.navigate(['/login']);
     return false;
   }
 };
-
-

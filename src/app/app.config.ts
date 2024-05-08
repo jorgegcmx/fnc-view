@@ -11,6 +11,5 @@ export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes),  {
     provide: LocationStrategy,
     useClass: HashLocationStrategy
-  },
-  provideClientHydration(),provideHttpClient(withFetch()), CookieService, provideRouter(routes, withComponentInputBinding())]
+  },provideHttpClient(withFetch()), CookieService, provideRouter(routes, withComponentInputBinding())]
 };

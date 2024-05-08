@@ -10,7 +10,7 @@ import { environment } from '../../../environments/environment';
 export class LoginService {
   constructor(private http: HttpClient, private cookies: CookieService) {}
 
-  LoginService(req: any): Observable<any> {   
+  LoginService(req: any): Observable<any> {
     const url = environment.apiUrlBase + '/login/login_profesional';
     return this.http.post<any>(url, req);
   }
@@ -20,15 +20,21 @@ export class LoginService {
     return this.http.post<any>(url, req);
   }
 
+  LoginServiceAgencia(req: any): Observable<any> {
+    const url = environment.apiUrlBase + '/login/login_agencias';
+    return this.http.post<any>(url, req);
+  }
+
   ResendPassword(req: any): Observable<any> {
     const url = environment.apiUrlBase + '/email/resend/' + req + '';
     return this.http.get<any>(url);
   }
 
-  setToken(userEmail: any, userID: any, admin: any) {
+  setToken(userEmail: any, userID: any, admin: any, perfil: any) {
     this.cookies.set('userEmail', userEmail);
     this.cookies.set('userID', userID);
     this.cookies.set('admin', admin);
+    this.cookies.set('perfil', perfil);
   }
 
   getEmail() {
@@ -41,9 +47,14 @@ export class LoginService {
     return this.cookies.get('admin');
   }
 
+  getPerfil() {
+    return this.cookies.get('perfil');
+  }
+
   cerrarSesion() {
+    this.cookies.set('userEmail', '');
     this.cookies.set('userID', '');
     this.cookies.set('admin', '');
-    this.cookies.set('userEmail', '');
+    this.cookies.set('perfil', '');
   }
 }
