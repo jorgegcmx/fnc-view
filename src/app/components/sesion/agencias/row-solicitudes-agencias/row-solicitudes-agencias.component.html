@@ -6,9 +6,18 @@
 <td>${{solicitud.costo}}</td>
 <td>{{solicitud.estatus=='C'?'Certificado':'Registrado'}}</td>
 <td>{{solicitud.id_pay}}</td>
-<td>{{solicitud.status_pay}}</td>
-<td>${{solicitud.total_pay}}</td>
-<td>{{solicitud.method_pay}}</td>
+<td>
+
+    @if(solicitud.status_pay!=null){
+    <div class="card mb-1 py-1 border-bottom-success">
+        {{solicitud.status_pay}}
+    </div>
+    }@else{
+    <div class="card mb-1 py-1 border-bottom-warning">PENDING</div>
+    }
+
+
+</td>
 <td>
     @if (solicitud.nocertificado == null) {
     <button class="btn btn-light btn-icon-split" (click)="Pay(solicitud)" style="margin-bottom: 4px;">
@@ -19,7 +28,8 @@
     </button>
 
     @if(showPaypalButton){
-    <app-pagos-pay idarticulo={{idarticulo}} costo={{costo}} idprofecional={{idprofecional}} id="{{id}}"></app-pagos-pay>
+    <app-pagos-pay idarticulo={{idarticulo}} costo={{costo}} idprofecional={{idprofecional}}
+        id="{{id}}"></app-pagos-pay>
     }
 
     }

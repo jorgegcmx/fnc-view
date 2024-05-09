@@ -18,11 +18,16 @@
 <td>{{solicitud.estatus=='C'?'Certificado':'Registrado'}}</td>
 <td>{{solicitud.nombreagencia}}</td>
 <td>{{solicitud.id_pay}}</td>
-<td>{{solicitud.status_pay}}</td>
-<td>${{solicitud.total_pay}}</td>
-<td>{{solicitud.method_pay}}</td>
 <td>
-
+    @if(solicitud.status_pay!=null){
+    <div class="card mb-1 py-1 border-bottom-success">
+        {{solicitud.status_pay}}
+    </div>
+    }@else{
+    <div class="card mb-1 py-1 border-bottom-warning">PENDING</div>
+    }
+</td>
+<td>
     @if (solicitud.nocertificado == null) {
     <a class="btn btn-info btn-circle btn-sm" (click)="save()">
         <i class="fas fa-save"></i>
