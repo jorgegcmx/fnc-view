@@ -28,7 +28,7 @@
     }
 </td>
 <td>
-    @if (solicitud.nocertificado == null) {
+    @if (solicitud.nocertificado == null && solicitud.status_pay=='COMPLETED') {
     <a class="btn btn-info btn-circle btn-sm" (click)="save()">
         <i class="fas fa-save"></i>
     </a>

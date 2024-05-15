@@ -4,7 +4,7 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
-                <input type="text" class="form-control bg-light border-2 small" placeholder="Nombre" aria-label="Search"
+                <input type="number" class="form-control bg-light border-2 small" placeholder="ID" aria-label="Search"
                     aria-describedby="basic-addon2" [(ngModel)]="buscar" name="buscar">
                 <div class="input-group-append">
                     <button class="btn btn-primary" type="button" (click)="buscarLista()">
@@ -18,8 +18,7 @@
         </form>
     </div>
     <!-- Page Heading -->
-    <div class="row anyClass">
-        <pre>{{Agencia | json}}</pre>
+    <div class="row anyClass">   
         <div class="col-lg-12">
             @if (DataAgencias$ | async; as resultObject) {
             <div class="card shadow mb-12">
@@ -31,8 +30,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="card-body">
-                    <!--pre>{{Agencia | json }}</pre-->
+                <div class="card-body">             
                     @if(show){
                     <div class="row g-4 align-items-center" style="margin: 4px;">
                         <div class="col-auto">
@@ -53,7 +51,7 @@
                             <input type="text" class="form-control" [(ngModel)]="Agencia.pais" name="pais">
                         </div>
                     </div>
-                    <div class="row g-4 align-items-center" style="margin: 4px;">
+                    <div class="row g-5 align-items-center" style="margin: 4px;">
                         <div class="col-auto">
                             <label for="">Estado</label>
                             <input type="text" class="form-control" [(ngModel)]="Agencia.estado" name="estado">
@@ -74,10 +72,17 @@
                                 <option style="font-size: small;" value="EMPRESA">EMPRESA</option>
                             </select>
                         </div>
-                    </div>
-                    <div class="row g-1 align-items-center" style="margin: 4px;">
                         <div class="col-auto">
-                            <button class="btn btn-primary" (click)="Guarda()" disabled="{{disable}}">Guardar</button>
+                            <label for="">Estatus</label>
+                            <select class="form-control" [(ngModel)]="Agencia.estatus" name="estatus" id="estatus">
+                                <option style="font-size: small;" value="ACTIVA">ACTIVA</option>
+                                <option style="font-size: small;" value="INACTIVA">INACTIVA</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row g-1 align-items-center" style="margin: 8px;">
+                        <div class="col-auto">
+                            <button class="btn btn-primary" (click)="Guarda()" [disabled]=disable  >Guardar</button>
                         </div>
                     </div>
                     }@else{
@@ -102,7 +107,7 @@
                             </thead>
                             <tbody>
                                 @for (agencia of resultObject; track agencia.idclientes) {
-                                <tr [agencia]='agencia'></tr>
+                                <tr [agencia]='agencia' (itemSelect)="editItem($event)"></tr>
                                 }
                             </tbody>
                         </table>

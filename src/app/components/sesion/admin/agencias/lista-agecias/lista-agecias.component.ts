@@ -4,6 +4,7 @@ import { ServiceService } from '../../../../../services/profesionales/service.se
 import { CommonModule, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RowAgenciasComponent } from '../row-agencias/row-agencias.component';
+import { Agencia } from '../../../../../interfaces/agencia';
 
 @Component({
   selector: 'app-lista-agecias',
@@ -25,6 +26,7 @@ export class ListaAgeciasComponent {
     this.nombre = '1';
     this.buscar = '';
     this.show = false;
+    this.disable = false;
     this.Agencia = new AgeciasClass();
   }
 
@@ -52,6 +54,7 @@ export class ListaAgeciasComponent {
         return EMPTY;
       })
     );
+    this.disable = false;
   }
 
   showForm() {
@@ -59,7 +62,13 @@ export class ListaAgeciasComponent {
     this.show = this.show == false ? true : false;
   }
 
+  editItem(event: any) {
+    this.Agencia = event;
+    this.show = this.show == false ? true : false;
+  }
+
   Guarda() {
+    this.disable = true;
     if (
       this.Agencia.email_cliente.trim() != '' &&
       this.Agencia.telefono.trim() != '' &&
@@ -70,7 +79,6 @@ export class ListaAgeciasComponent {
       this.Agencia.razon_social.trim() != '' &&
       this.Agencia.tipo.trim() != ''
     ) {
-      this.disable = true;
       this.service
         .guardaAgencias(this.Agencia)
         .pipe(
@@ -81,12 +89,13 @@ export class ListaAgeciasComponent {
           })
         )
         .subscribe(() => {
-          this.disable = false;
+          this.disable = true;
           this.show = false;
           this.buscarTodos();
         });
     } else {
       alert('¡Todos los datos son requeridos!');
+      this.disable = false;
     }
   }
 }

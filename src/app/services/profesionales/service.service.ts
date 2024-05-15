@@ -56,7 +56,7 @@ export class ServiceService {
   }
 
   getAgencias(nombre: any): Observable<any> {
-    const url = environment.apiUrlBase + '/agencias/lista';
+    const url = environment.apiUrlBase + '/agencias/lista/'+nombre+'';
     return this.http.get<any>(url);
   }
 
