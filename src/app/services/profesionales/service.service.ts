@@ -60,6 +60,16 @@ export class ServiceService {
     return this.http.get<any>(url);
   }
 
+  getAgenciasById(id:string): Observable<any> {
+    const url = environment.apiUrlBase + '/agencias/busca/'+id+'';
+    return this.http.get<any>(url);
+  }
+
+  getAgenciasActivas(): Observable<any> {
+    const url = environment.apiUrlBase + '/agencias/lista/activas';
+    return this.http.get<any>(url);
+  }
+
   guardaAgencias(agencia: any): Observable<any> {
     const url = environment.apiUrlBase + '/agencias/guarda';
     return this.http.post<any>(url, agencia);
