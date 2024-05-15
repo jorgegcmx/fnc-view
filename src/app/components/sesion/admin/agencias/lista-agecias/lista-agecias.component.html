@@ -19,6 +19,7 @@
     </div>
     <!-- Page Heading -->
     <div class="row anyClass">
+        <pre>{{Agencia | json}}</pre>
         <div class="col-lg-12">
             @if (DataAgencias$ | async; as resultObject) {
             <div class="card shadow mb-12">
@@ -66,6 +67,13 @@
                             <input type="text" class="form-control" [(ngModel)]="Agencia.razon_social"
                                 name="razon_social">
                         </div>
+                        <div class="col-auto">
+                            <label for="">Tipo</label>
+                            <select class="form-control" [(ngModel)]="Agencia.tipo" name="tipo" id="tipo">
+                                <option style="font-size: small;" value="AGENCIA">AGENCIA</option>
+                                <option style="font-size: small;" value="EMPRESA">EMPRESA</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="row g-1 align-items-center" style="margin: 4px;">
                         <div class="col-auto">
@@ -78,6 +86,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th scope="col">ID</th>
                                     <th scope="col">Nombre Agencia</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Telefono</th>
@@ -85,6 +94,8 @@
                                     <th scope="col">Pais</th>
                                     <th scope="col">Estado</th>
                                     <th scope="col">Municipio</th>
+                                    <th scope="col">Tipo</th>
+                                    <th scope="col">Estatus</th>
                                     <th scope="col">Acciones</th>
 
                                 </tr>

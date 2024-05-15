@@ -67,7 +67,8 @@ export class ListaAgeciasComponent {
       this.Agencia.pais.trim() != '' &&
       this.Agencia.estado.trim() != '' &&
       this.Agencia.municipio.trim() != '' &&
-      this.Agencia.razon_social.trim() != ''
+      this.Agencia.razon_social.trim() != '' &&
+      this.Agencia.tipo.trim() != ''
     ) {
       this.disable = true;
       this.service
@@ -102,6 +103,8 @@ export class AgeciasClass {
   rfc: any;
   razon_social: string;
   idusuarios_admin: number;
+  tipo: string;
+  estatus: string;
 
   constructor() {
     this.idclientes = null;
@@ -115,5 +118,7 @@ export class AgeciasClass {
     this.rfc = null;
     this.razon_social = '';
     this.idusuarios_admin = 2;
+    this.tipo = '';
+    this.estatus = 'ACTIVA';
   }
 }
