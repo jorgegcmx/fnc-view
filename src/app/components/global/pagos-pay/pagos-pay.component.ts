@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { ServiceService } from '../../../services/profesionales/service.service';
 import { LoginService } from '../../../services/login/login.service';
+import { Router } from '@angular/router';
 
 declare var paypal: any;
 
@@ -29,7 +30,8 @@ export class PagosPayComponent implements OnInit {
 
   constructor(
     private service: ServiceService,
-    private loginservice: LoginService
+    private loginservice: LoginService,
+    private router: Router
   ) {
     this.requestDetalle = new DetalleCursosProfecionales();
   }
@@ -101,11 +103,11 @@ export class PagosPayComponent implements OnInit {
     this.requestDetalle.email_pay = email_pay;
     this.requestDetalle.total_pay = total_pay;
     this.requestDetalle.method_pay = method_pay;
-    console.log(this.requestDetalle);
     this.service
       .saveDetalleCursosProfesionales(this.requestDetalle)
       .subscribe((res) => {
         alert(res.smg);
+        this.router.navigate(['/agencias-solicitudes']);
       });
   }
 }

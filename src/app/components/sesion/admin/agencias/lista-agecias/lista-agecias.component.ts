@@ -77,7 +77,8 @@ export class ListaAgeciasComponent {
       this.Agencia.estado.trim() != '' &&
       this.Agencia.municipio.trim() != '' &&
       this.Agencia.razon_social.trim() != '' &&
-      this.Agencia.tipo.trim() != ''
+      this.Agencia.tipo.trim() != '' &&
+      this.Agencia.contrasena_cliente.trim() !=''
     ) {
       this.service
         .guardaAgencias(this.Agencia)
@@ -103,7 +104,7 @@ export class ListaAgeciasComponent {
 export class AgeciasClass {
   idclientes: any;
   email_cliente: string;
-  contrasena_cliente: any;
+  contrasena_cliente: string;
   telefono: string;
   direccion: string;
   pais: string;
@@ -118,7 +119,7 @@ export class AgeciasClass {
   constructor() {
     this.idclientes = null;
     this.email_cliente = '';
-    this.contrasena_cliente = null;
+    this.contrasena_cliente = '';
     this.telefono = '';
     this.direccion = '';
     this.pais = '';

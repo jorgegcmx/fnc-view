@@ -32,7 +32,7 @@
                 </div>
                 <div class="card-body">             
                     @if(show){
-                    <div class="row g-4 align-items-center" style="margin: 4px;">
+                    <div class="row g-5 align-items-center" style="margin: 4px;">
                         <div class="col-auto">
                             <label for="">Email</label>
                             <input type="email" class="form-control" [(ngModel)]="Agencia.email_cliente"
@@ -50,6 +50,10 @@
                             <label for="">País</label>
                             <input type="text" class="form-control" [(ngModel)]="Agencia.pais" name="pais">
                         </div>
+                        <div class="col-auto">
+                            <label for="">Contraseña</label>
+                            <input type="text" class="form-control" [(ngModel)]="Agencia.contrasena_cliente" name="contrasena_cliente">
+                        </div>
                     </div>
                     <div class="row g-5 align-items-center" style="margin: 4px;">
                         <div class="col-auto">
@@ -61,7 +65,7 @@
                             <input type="text" class="form-control" [(ngModel)]="Agencia.municipio" name="municipio">
                         </div>
                         <div class="col-auto">
-                            <label for="">Nombre de Agencia</label>
+                            <label for="">Nombre </label>
                             <input type="text" class="form-control" [(ngModel)]="Agencia.razon_social"
                                 name="razon_social">
                         </div>
