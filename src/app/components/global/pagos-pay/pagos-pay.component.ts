@@ -31,7 +31,7 @@ export class PagosPayComponent implements OnInit {
   constructor(
     private service: ServiceService,
     private loginservice: LoginService,
-    private router: Router
+    public router: Router
   ) {
     this.requestDetalle = new DetalleCursosProfecionales();
   }
@@ -106,8 +106,7 @@ export class PagosPayComponent implements OnInit {
     this.service
       .saveDetalleCursosProfesionales(this.requestDetalle)
       .subscribe((res) => {
-        alert(res.smg);
-        this.router.navigate(['/agencias-solicitudes']);
+        window.location.reload();
       });
   }
 }
